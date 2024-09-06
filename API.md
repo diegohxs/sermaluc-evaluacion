@@ -13,8 +13,8 @@
                 "phones": [
                             {
                                 "number": "1123DieAa@20",
-                                "citycode": "1",
-                                "contrycode": "57"
+                                "cityCode": "1",
+                                "counTrycode": "57"
                              }
                            ]
              }
@@ -34,4 +34,5 @@
               {
                 "message": "El correo ya se encuentra registrado"
               }
+
 
