@@ -22,3 +22,4 @@ Sermaluc register service it is a microservice in charge of registering new user
 | 403         |  El correo ya se encuentra registrado    
 | 403         |  El password no cumple con el formato     
 
+

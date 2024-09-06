@@ -8,12 +8,12 @@ spring:
     driverClassName: org.h2.Driver
     username: user
     password: sermaluc
-    console:
-      enable: true
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+    open-in-view: false
+
 user:
   validation:
     regex:
