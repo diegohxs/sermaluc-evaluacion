@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>sermaluc-register-app</module>
+        <module>sermaluc-register-core</module>
     </modules>
 
     <properties>
@@ -146,7 +147,7 @@
                                 <limit>
                                     <counter>INSTRUCTION</counter>
                                     <value>COVEREDRATIO</value>
-                                    <minimum>0%</minimum>
+                                    <minimum>90%</minimum>
                                 </limit>
                             </limits>
                         </rule>
