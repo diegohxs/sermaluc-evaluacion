@@ -1,5 +1,26 @@
 # SERMALUC-REGISTER-USER
 
+## Project structure
+
+```
+sermaluc-register-parent
+ │
+ ├── sermaluc-register-app
+    │
+    ├── config
+    │
+    ├── contract
+    │
+    ├── controller
+    │
+    ├── repository
+    │
+    ├── services
+    │
+    ├── util
+    
+```
+
 ## Prerequisites
 
 * Java SDK 11.x
