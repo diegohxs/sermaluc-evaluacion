@@ -13,7 +13,7 @@ import pe.sermaluc.register.contract.response.ResponseUserRegister;
 import pe.sermaluc.register.services.RegisterService;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 @Slf4j
 public class RegisterController {
@@ -22,7 +22,7 @@ public class RegisterController {
 
     private final RegisterService registerService;
 
-    @PostMapping("/user")
+    @PostMapping("/register")
     public ResponseEntity<?> postRegisterUser(@RequestBody RequestUserRegister requestUserRegister) throws Exception {
         ResponseUserRegister response = registerService.postUserRegister(requestUserRegister);
         return ResponseEntity.status(response.getMessage() != NULL ?

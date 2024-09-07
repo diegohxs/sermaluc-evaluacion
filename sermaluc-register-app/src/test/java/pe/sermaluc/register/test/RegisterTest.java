@@ -45,7 +45,7 @@ public class RegisterTest {
 
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/register/user")
+                        .post("/user/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(String.valueOf(prepareDataToRegisterController("bodyRegister")))
                         .accept(MediaType.APPLICATION_JSON))
@@ -58,7 +58,7 @@ public class RegisterTest {
     public void registerPostUserForbidden() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/register/user")
+                        .post("/user/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(String.valueOf(prepareDataToRegisterController("bodyForbiddenRegister")))
                         .accept(MediaType.APPLICATION_JSON))
