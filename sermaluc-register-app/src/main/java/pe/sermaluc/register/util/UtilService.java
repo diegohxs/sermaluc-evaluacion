@@ -20,11 +20,11 @@ public class UtilService {
 
     public String generateToken(String name) {
         return Jwts.builder()
-                .setId(UUID.randomUUID().toString())  // Generar ID único
-                .setSubject(name)  // Establecer el subject (usuario, por ejemplo)
-                .setIssuedAt(new Date())  // Fecha de emisión
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000))  // 1 hora de validez
-                .signWith(SignatureAlgorithm.HS256, configPropertiesService.getJwtSecret().getBytes())  // Algoritmo HS256 y clave secreta
+                .setId(UUID.randomUUID().toString())
+                .setSubject(name)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
+                .signWith(SignatureAlgorithm.HS256, configPropertiesService.getJwtSecret().getBytes())
                 .compact();
     }
 

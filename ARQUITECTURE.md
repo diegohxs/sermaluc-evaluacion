@@ -19,7 +19,7 @@ Sermaluc register service it is a microservice in charge of registering new user
 
 | HTTP Status | message
 |-------------|--------------------------
-| 403         |  El correo ya se encuentra registrado    
-| 403         |  El password no cumple con el formato     
+| 403         |  The email is already registered   
+| 403         |  The password does not comply with the format     
 
 

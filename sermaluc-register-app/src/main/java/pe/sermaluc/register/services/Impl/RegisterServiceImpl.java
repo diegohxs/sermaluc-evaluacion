@@ -62,9 +62,9 @@ public class RegisterServiceImpl implements RegisterService {
     public String validationCase(RequestUserRegister requestUserRegister) {
         Optional<User> userExist = registerRepository.findByEmail(requestUserRegister.getEmail());
         if (userExist.isPresent()) {
-            return "El correo ya se encuentra registrado";
+            return "The email is already registered";
         } else {
-            return utilService.validRegexPassword(requestUserRegister.getPassword()).equals(Boolean.FALSE) ? "El password no cumple con el formato" : "";
+            return utilService.validRegexPassword(requestUserRegister.getPassword()).equals(Boolean.FALSE) ? "The password does not comply with the format" : "";
         }
     }
 
