@@ -1,0 +1,86 @@
+swagger: '2.0'
+info:
+  description: Rest Api responsible for registering users taking into consideration some prior validations to register.
+  version: 1.0.0
+  title: Register API Documentation
+host: localhost:8080
+basePath: /
+tags:
+  - name: register-controller
+    description: Register Controller
+paths:
+  /user/register:
+    post:
+      tags:
+        - register-controller
+      summary: register
+      description: register new user
+      operationId: postRegisterUserUsingPOST
+      consumes:
+        - application/json
+      produces:
+        - '*/*'
+      parameters:
+        - in: body
+          name: requestUserRegister
+          description: requestUserRegister
+          required: true
+          schema:
+            $ref: '#/definitions/RequestUserRegister'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponseUserRegister'
+        '201':
+          description: Successful
+          schema:
+            $ref: '#/definitions/ResponseUserRegister'
+        '403':
+          description: Forbidden
+definitions:
+  PhoneRegister:
+    type: object
+    properties:
+      cityCode:
+        type: string
+      countryCode:
+        type: string
+      number:
+        type: string
+    title: PhoneRegister
+  RequestUserRegister:
+    type: object
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phones:
+        type: array
+        items:
+          $ref: '#/definitions/PhoneRegister'
+    title: RequestUserRegister
+  ResponseUserRegister:
+    type: object
+    properties:
+      created:
+        type: string
+        format: date-time
+      id:
+        type: string
+      isActive:
+        type: boolean
+      lastLogin:
+        type: string
+        format: date-time
+      message:
+        type: string
+      modified:
+        type: string
+        format: date-time
+      token:
+        type: string
+    title: ResponseUserRegister

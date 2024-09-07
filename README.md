@@ -43,6 +43,12 @@ mvn verify
 
 Run MicroService within IntelliJ.
 
+## Document Swagger 
+
+Run Microservice 
+
+enter the following url
+http://localhost:8080/swagger-ui/index.html#/
 
 ## Data Base
 
