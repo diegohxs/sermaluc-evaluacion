@@ -41,11 +41,11 @@ public class RegisterTest {
 
 
     @Test
-    public void registerPostUserCreated() throws Exception {
+    public void registerPostUserCreatedTest() throws Exception {
 
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/register/user")
+                        .post("/user/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(String.valueOf(prepareDataToRegisterController("bodyRegister")))
                         .accept(MediaType.APPLICATION_JSON))
@@ -55,16 +55,17 @@ public class RegisterTest {
 
 
     @Test
-    public void registerPostUserForbidden() throws Exception {
+    public void registerPostUserForbiddenTest() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders
-                        .post("/register/user")
+                        .post("/user/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(String.valueOf(prepareDataToRegisterController("bodyForbiddenRegister")))
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isForbidden());
     }
+
 
     private String prepareDataToRegisterController(String jsonBody) {
         String jsonRequest = null;

@@ -1,6 +1,6 @@
 # Register User Microservice API
 
-## Register User [POST register/user ]
+## Register User [POST user/register ]
 
 + Request for Client (application/json)
 

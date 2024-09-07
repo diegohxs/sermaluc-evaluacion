@@ -11,7 +11,6 @@ import pe.sermaluc.register.repository.entity.User;
 import pe.sermaluc.register.services.RegisterService;
 import pe.sermaluc.register.util.UtilService;
 
-
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -22,14 +21,15 @@ import java.util.stream.Collectors;
 public class RegisterServiceImpl implements RegisterService {
 
     private final RegisterRepository registerRepository;
-     private final UtilService utilService;
+    private final UtilService utilService;
 
     public ResponseUserRegister postUserRegister(RequestUserRegister requestUserRegister) throws Exception {
 
 
         try {
+
             String validationCase = validationCase(requestUserRegister);
-            if (!validationCase.equalsIgnoreCase("")){
+            if (!validationCase.equalsIgnoreCase("")) {
                 return ResponseUserRegister.builder().message(validationCase).build();
             }
             User newUser = User.builder()
@@ -54,8 +54,8 @@ public class RegisterServiceImpl implements RegisterService {
                     .token(responseUser.getToken())
                     .build();
         } catch (Exception e) {
-            log.error("");
-            return null;
+            log.error("Error {}", e);
+            throw e;
         }
     }
 
@@ -63,12 +63,10 @@ public class RegisterServiceImpl implements RegisterService {
         Optional<User> userExist = registerRepository.findByEmail(requestUserRegister.getEmail());
         if (userExist.isPresent()) {
             return "El correo ya se encuentra registrado";
-        }else{
+        } else {
             return utilService.validRegexPassword(requestUserRegister.getPassword()).equals(Boolean.FALSE) ? "El password no cumple con el formato" : "";
         }
     }
-
-
 
 
 }

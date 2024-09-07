@@ -1,5 +1,10 @@
 package pe.sermaluc.register.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -13,7 +18,7 @@ import pe.sermaluc.register.contract.response.ResponseUserRegister;
 import pe.sermaluc.register.services.RegisterService;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/user")
 @RequiredArgsConstructor
 @Slf4j
 public class RegisterController {
@@ -21,9 +26,14 @@ public class RegisterController {
     private static String NULL = null;
 
     private final RegisterService registerService;
-
-    @PostMapping("/user")
-    public ResponseEntity<?> postRegisterUser(@RequestBody RequestUserRegister requestUserRegister) throws Exception {
+    @Operation(summary = "register", description = "register new user")
+    @ApiResponses(value={@ApiResponse(responseCode = "201",description = "Successful",content ={
+            @Content(mediaType = "application/json", schema =
+            @Schema(implementation = ResponseUserRegister.class))
+    })
+    })
+    @PostMapping("/register")
+    public ResponseEntity<ResponseUserRegister> postRegisterUser(@RequestBody RequestUserRegister requestUserRegister) throws Exception {
         ResponseUserRegister response = registerService.postUserRegister(requestUserRegister);
         return ResponseEntity.status(response.getMessage() != NULL ?
                         HttpStatus.FORBIDDEN : HttpStatus.CREATED)

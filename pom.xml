@@ -16,13 +16,17 @@
     <packaging>pom</packaging>
     <modules>
         <module>sermaluc-register-app</module>
-        <module>sermaluc-register-core</module>
     </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jjwtapi.propertie>0.11.2</jjwtapi.propertie>
+        <jjwtimpl.propertie>0.11.2</jjwtimpl.propertie>
+        <jjwtjackson.propertie>0.11.2</jjwtjackson.propertie>
+        <springfox.propertie>3.0.0</springfox.propertie>
+        <jacoco.propertie>0.8.2</jacoco.propertie>
     </properties>
 
     <dependencies>
@@ -37,28 +41,19 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
-            <version>0.11.2</version>
+            <version>${jjwtapi.propertie}</version>
         </dependency>
 
-        <!-- JWT Implementation (Jackson y Firma) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-impl</artifactId>
-            <version>0.11.2</version>
+            <version>${jjwtimpl.propertie}</version>
         </dependency>
 
-        <!-- JWT firma con HS256 (o HS512) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-jackson</artifactId> <!-- para usar Jackson como serializador JSON -->
-            <version>0.11.2</version>
-        </dependency>
-
-        <!-- Soporte para algoritmos de firma -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt-impl</artifactId>
-            <version>0.11.2</version>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>${jjwtjackson.propertie}</version>
         </dependency>
 
         <dependency>
@@ -66,17 +61,11 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.6.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.6.1</version>
-            <scope>compile</scope>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${springfox.propertie}</version>
         </dependency>
 
         <dependency>
@@ -115,7 +104,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
+                <version>${jacoco.propertie}</version>
                 <executions>
                     <execution>
                         <id>pre-unit-test</id>

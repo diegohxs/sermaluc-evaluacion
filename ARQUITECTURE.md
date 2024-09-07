@@ -13,7 +13,7 @@ Sermaluc register service it is a microservice in charge of registering new user
 
 | Endpoints             | Description
 |-----------------------|----------------------------------------------------
-| POST   /register/user | Process register new user
+| POST   /user/register | Process register new user
 
 ## Errors
 
