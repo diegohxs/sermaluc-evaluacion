@@ -41,7 +41,7 @@ public class RegisterTest {
 
 
     @Test
-    public void registerPostUserCreated() throws Exception {
+    public void registerPostUserCreatedTest() throws Exception {
 
 
         mvc.perform(MockMvcRequestBuilders
@@ -55,7 +55,7 @@ public class RegisterTest {
 
 
     @Test
-    public void registerPostUserForbidden() throws Exception {
+    public void registerPostUserForbiddenTest() throws Exception {
 
         mvc.perform(MockMvcRequestBuilders
                         .post("/user/register")
@@ -65,6 +65,7 @@ public class RegisterTest {
                 .andDo(print())
                 .andExpect(status().isForbidden());
     }
+
 
     private String prepareDataToRegisterController(String jsonBody) {
         String jsonRequest = null;
