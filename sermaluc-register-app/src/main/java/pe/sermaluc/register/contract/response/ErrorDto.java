@@ -8,5 +8,5 @@ import java.util.List;
 @Data
 @Builder
 public class ErrorDto {
-    private List<String> message;
+    private String message;
 }

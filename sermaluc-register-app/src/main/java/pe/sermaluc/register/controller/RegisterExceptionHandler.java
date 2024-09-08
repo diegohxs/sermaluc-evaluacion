@@ -21,11 +21,11 @@ public class RegisterExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleValidationExceptions(MethodArgumentNotValidException e) {
         log.error(e.getMessage());
-        List<String> errors = new ArrayList<>();
+        ErrorDto errorDto = null;
         for (FieldError fieldError : e.getBindingResult().getFieldErrors()) {
-            errors.add(fieldError.getField().concat(" -> ").concat(Objects.requireNonNull(fieldError.getDefaultMessage())));
+            errorDto = ErrorDto.builder().message(Objects.requireNonNull(fieldError.getDefaultMessage())).build();
         }
-        ErrorDto errorDto = ErrorDto.builder().message(errors).build();
+
 
         return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
     }
