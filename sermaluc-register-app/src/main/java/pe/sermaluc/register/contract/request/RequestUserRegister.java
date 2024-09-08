@@ -1,13 +1,11 @@
 package pe.sermaluc.register.contract.request;
 
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -18,6 +16,8 @@ public class RequestUserRegister {
     private String name;
     @NotBlank(message = "email is mandatory")
     @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@dominio\\.cl$", message = "El correo debe seguir el formato aaaaaaa@dominio.cl")
+    //Regex generico para validar correos correctos
+    // @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"")
     @Email(message = "Email is not in the correct format")
     private String email;
     @NotBlank(message = "password is mandatory")

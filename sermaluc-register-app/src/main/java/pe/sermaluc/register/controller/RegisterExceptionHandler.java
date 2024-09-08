@@ -8,6 +8,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import pe.sermaluc.register.contract.response.ErrorDto;
 
@@ -27,6 +28,14 @@ public class RegisterExceptionHandler {
         ErrorDto errorDto = ErrorDto.builder().message(errors).build();
 
         return new ResponseEntity<>(errorDto, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseBody
+    public  ResponseEntity<?> onDefaultException(Exception exception){
+        log.error(exception.getMessage());
+        return new ResponseEntity<>("", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

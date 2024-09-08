@@ -26,7 +26,6 @@ public class RegisterServiceImpl implements RegisterService {
     public ResponseUserRegister postUserRegister(RequestUserRegister requestUserRegister) throws Exception {
 
 
-        try {
 
             String validationCase = validationCase(requestUserRegister);
             if (!validationCase.equalsIgnoreCase("")) {
@@ -53,10 +52,6 @@ public class RegisterServiceImpl implements RegisterService {
                     .modified(responseUser.getModified())
                     .token(responseUser.getToken())
                     .build();
-        } catch (Exception e) {
-            log.error("Error {}", e);
-            throw e;
-        }
     }
 
     public String validationCase(RequestUserRegister requestUserRegister) {
