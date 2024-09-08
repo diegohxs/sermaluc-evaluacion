@@ -1,12 +1,12 @@
 {
   "name": "Juan2 Rodriguez",
-  "email": "JuanRodriguez@dominio.cl",
+  "email": "corr12sesd2doassd3@esgmail.cl",
   "password": "1123DieAa@20",
   "phones": [
     {
       "number": "123456789",
-      "citycode": "1",
-      "contrycode": "57"
+      "cityCode": "1",
+      "countryCode": "57"
     }
   ]
 }
