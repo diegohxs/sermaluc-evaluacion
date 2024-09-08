@@ -29,11 +29,7 @@ public class UtilService {
     }
 
     public Boolean validRegexPassword(String password) {
-        try {
             Pattern passwordRegexp = Pattern.compile(configPropertiesService.getPasswordRegexp());
             return passwordRegexp.matcher(password).matches() ? Boolean.TRUE : Boolean.FALSE;
-        }catch (Exception e) {
-            throw e;
-        }
     }
 }

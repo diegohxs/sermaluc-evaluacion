@@ -4,28 +4,23 @@ package pe.sermaluc.register.contract.request;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class RequestUserRegister {
 
-    @NotNull
-    @NotBlank
+    @NotBlank(message = "name is mandatory")
     private String name;
-    @NotNull
-    @NotBlank
-    @NotEmpty
-    @Email(message = "El correo no tiene el formato")
+    @NotBlank(message = "email is mandatory")
+    @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@dominio\\.cl$", message = "El correo debe seguir el formato aaaaaaa@dominio.cl")
+    @Email(message = "Email is not in the correct format")
     private String email;
-    @NotNull
+    @NotBlank(message = "password is mandatory")
     private String password;
     List<PhoneRegister> phones;
 

@@ -65,6 +65,18 @@ public class RegisterTest {
                 .andExpect(status().isForbidden());
     }
 
+    @Test
+    public void registerPostUserBadRequestTest() throws Exception {
+
+        mvc.perform(MockMvcRequestBuilders
+                        .post("/user/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(String.valueOf(prepareDataToRegisterController("bodyBadRequestRegister")))
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest());
+    }
+
 
     private String prepareDataToRegisterController(String jsonBody) {
         String jsonRequest = null;
