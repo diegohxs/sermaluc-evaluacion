@@ -1,8 +1,19 @@
 # SERMALUC-REGISTER-USER
 
+## Description
+
+Sermaluc register service it is a microservice in charge of registering new users, having as validations that the email is not repeated and that the password is valid.
+
+
+
+
 ## Project structure
 
+
+
 ```
+docs
+│
 sermaluc-register-parent
  │
  ├── sermaluc-register-app
@@ -20,7 +31,7 @@ sermaluc-register-parent
     ├── util
     
 ```
-
+![Project structure](docs/images/Project_project.png)
 ## Prerequisites
 
 * Java SDK 11.x
@@ -39,6 +50,7 @@ mvn compile
 ```
 mvn verify
 ```
+![Validate verify](docs/images/result_verify.png)
 ## Running
 
 Run MicroService within IntelliJ.
@@ -49,6 +61,8 @@ Run Microservice
 
 enter the following url
 http://localhost:8080/swagger-ui/index.html#/
+
+![Document swagger](docs/images/swagger.png)
 
 ## Data Base
 
@@ -65,6 +79,8 @@ user
 
 Password:
 sermaluc
+
+![Data Base](docs/images/h2database.png)
 
 ## Scripts SQL
 

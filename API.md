@@ -32,7 +32,8 @@
     + Response Error
   
               {
-                "message": "El correo ya se encuentra registrado"
+                "message": "The email is already registered"
               }
+
 
 

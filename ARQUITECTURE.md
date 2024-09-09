@@ -1,8 +1,8 @@
 # Register User Microservice API
 
-## Description
+## Solution Diagram 
 
-Sermaluc register service it is a microservice in charge of registering new users, having as validations that the email is not repeated and that the password is valid.
+![Solution Diagram](docs/images/solution_diagram.png)
 
 ## Capabilities
 
